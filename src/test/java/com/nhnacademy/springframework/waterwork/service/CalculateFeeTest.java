@@ -7,26 +7,26 @@ import com.nhnacademy.springframework.waterwork.repository.FileRepository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import java.util.stream.Collectors;
+import org.junit.jupiter.api.Test;
 
-public class CalculateFee implements Calculate {
-    List<CalculatedWaterFee> calculatedWaterFee;
-    FileRepository fileRepository;
+class CalculateFeeTest {
 
-    @Autowired
-    public CalculateFee(FileRepository fileRepository) {
-        this.fileRepository = fileRepository;
-    }
-
-    @Override
-    @Bean
-    public void calculator(int amount) {
+    @Test
+    void calculator() {
         List<CalculatedWaterFee> calculatedWaterFee = new ArrayList<>();
+        FileRepository fileRepository;
+
+        fileRepository = new CsvFileParser();
         fileRepository.read();
+        AtomicLong finalFee = new AtomicLong(0);
+        int amount = 1000;
         AtomicLong remainAmount = new AtomicLong(amount);
+        String sector = null;
         ComparatorForAscending comp = new ComparatorForAscending();
+
 
         fileRepository.findAll().stream().forEach((waterFee -> {
             if (remainAmount.get() >= waterFee.getSectionStart() &&
@@ -40,5 +40,6 @@ public class CalculateFee implements Calculate {
         for (int i = 0; i < 5; i++) {
             System.out.println(calculatedWaterFee.get(i).toString());
         }
+
     }
 }

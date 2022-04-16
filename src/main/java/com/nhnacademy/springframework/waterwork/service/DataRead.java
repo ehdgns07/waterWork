@@ -1,5 +1,7 @@
 package com.nhnacademy.springframework.waterwork.service;
 
-public class CalculateFeeCsv implements CalculateFee{
+public interface DataRead {
+public void dataRead();
+
 
 }
