@@ -8,9 +8,8 @@ import java.util.Collection;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.annotation.Bean;
 
-public class CsvFileParser implements FileRepository{
+public class CsvFileParser implements FileParser {
 private static final Log log = LogFactory.getLog(CsvFileParser.class);
 
 private List<WaterFee> waterFeeList = new ArrayList<>();

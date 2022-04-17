@@ -16,7 +16,6 @@
         </encoder>
     </appender>
 
-
     <logger name="com.nhnacademy.springframework.waterwork.BootStrap" level="INFO" additivity="false">
         <appender-ref ref="STDOUT" />
         <pattern>
@@ -27,6 +26,12 @@
     <appender-ref ref="FILE" />
         <pattern>
                 %msg%n
+        </pattern>
+    </logger>
+    <logger name="com.nhnacademy.springframework.waterwork.service.LoggingResultServiceTest" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <pattern>
+            %msg
         </pattern>
     </logger>
 

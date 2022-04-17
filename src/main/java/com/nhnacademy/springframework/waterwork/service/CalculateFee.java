@@ -1,15 +1,9 @@
 package com.nhnacademy.springframework.waterwork.service;
 
-import com.nhnacademy.springframework.waterwork.comparerator.ComparatorForAscending;
 import com.nhnacademy.springframework.waterwork.repository.CalculatedWaterFee;
-import com.nhnacademy.springframework.waterwork.repository.CsvFileParser;
-import com.nhnacademy.springframework.waterwork.repository.FileRepository;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 public class CalculateFee implements Calculate {
 

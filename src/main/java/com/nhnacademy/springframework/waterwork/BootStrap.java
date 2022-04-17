@@ -1,7 +1,7 @@
 package com.nhnacademy.springframework.waterwork;
 
 import com.nhnacademy.springframework.waterwork.config.MainConfigFile;
-import com.nhnacademy.springframework.waterwork.repository.FileRepository;
+import com.nhnacademy.springframework.waterwork.repository.FileParser;
 import com.nhnacademy.springframework.waterwork.service.Calculate;
 import com.nhnacademy.springframework.waterwork.service.DataRead;
 import com.nhnacademy.springframework.waterwork.service.LogingService;
@@ -27,7 +27,7 @@ public class BootStrap {
                 if(Objects.equals(amount, 0)){
                     break;
                 }
-                context.getBean("fileRepository", FileRepository.class).read(path);
+                context.getBean("fileRepository", FileParser.class).read(path);
                 context.getBean("dataRead", DataRead.class).dataLoadAndSave();
                 context.getBean("calculate", Calculate.class).calculator(amount);
                 context.getBean("logingService", LogingService.class).printingResult();

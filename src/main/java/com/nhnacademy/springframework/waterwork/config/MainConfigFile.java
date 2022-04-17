@@ -1,12 +1,12 @@
 package com.nhnacademy.springframework.waterwork.config;
 
 import com.nhnacademy.springframework.waterwork.repository.CsvFileParser;
-import com.nhnacademy.springframework.waterwork.repository.FileRepository;
+import com.nhnacademy.springframework.waterwork.repository.FileParser;
 import com.nhnacademy.springframework.waterwork.service.Calculate;
 import com.nhnacademy.springframework.waterwork.service.CalculateFee;
 import com.nhnacademy.springframework.waterwork.service.DataRead;
-import com.nhnacademy.springframework.waterwork.service.DataReadService;
-import com.nhnacademy.springframework.waterwork.service.LogingResultService;
+import com.nhnacademy.springframework.waterwork.service.DataLoadService;
+import com.nhnacademy.springframework.waterwork.service.LoggingResultService;
 import com.nhnacademy.springframework.waterwork.service.LogingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,13 +20,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class MainConfigFile {
 
     @Bean
-    public FileRepository fileRepository() {
+    public FileParser fileRepository() {
         return new CsvFileParser();
     }
 
     @Bean
-    public DataRead dataRead(FileRepository fileRepository) {
-        return new DataReadService(fileRepository);
+    public DataRead dataRead(FileParser fileParser) {
+        return new DataLoadService(fileParser);
     }
 
     @Bean
@@ -37,7 +37,7 @@ public class MainConfigFile {
 
     @Bean
     public LogingService logingService(Calculate calculate) {
-        return new LogingResultService(calculate);
+        return new LoggingResultService(calculate);
     }
 
 }

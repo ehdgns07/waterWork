@@ -2,15 +2,15 @@ package com.nhnacademy.springframework.waterwork.service;
 
 import com.nhnacademy.springframework.waterwork.comparerator.ComparatorForAscending;
 import java.util.Collections;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
-public class LogingResultService implements LogingService{
+public class LoggingResultService implements LogingService{
     Calculate calculate;
     ComparatorForAscending comp = new ComparatorForAscending();
+    static final Log log = LogFactory.getLog(LoggingResultService.class);
 
-
-    public LogingResultService(Calculate calculate){
+    public LoggingResultService(Calculate calculate){
         this.calculate = calculate;
     }
 
@@ -19,7 +19,7 @@ public class LogingResultService implements LogingService{
     public void printingResult() {
         Collections.sort(calculate.getCalculatedWaterFee(), comp);
         for (int i = 0; i < 5; i++) {
-            System.out.println(calculate.getCalculatedWaterFee().get(i).toString());
+            log.info(calculate.getCalculatedWaterFee().get(i).toString());
         }
     }
 }
