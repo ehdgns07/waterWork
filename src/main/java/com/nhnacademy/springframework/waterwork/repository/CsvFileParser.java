@@ -15,10 +15,11 @@ private static final Log log = LogFactory.getLog(CsvFileParser.class);
 
 private List<WaterFee> waterFeeList = new ArrayList<>();
 
-    @Bean
-    public void read(){
+
+    public void read(String path){
         String line = null;
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("./Tariff_20220331.csv")))) {
+        waterFeeList.clear();
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(path)))) {
             while((line = br.readLine()) != null){
                 if(line.startsWith(" 순번 ")){
                     continue;

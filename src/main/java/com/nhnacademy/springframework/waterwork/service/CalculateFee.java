@@ -12,33 +12,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
 public class CalculateFee implements Calculate {
-    List<CalculatedWaterFee> calculatedWaterFee;
-    FileRepository fileRepository;
 
-    @Autowired
-    public CalculateFee(FileRepository fileRepository) {
-        this.fileRepository = fileRepository;
+    DataRead dataRead;
+    List<CalculatedWaterFee> calculatedWaterFee = new ArrayList<>();
+
+    public CalculateFee(DataRead dataRead) {
+        this.dataRead = dataRead;
     }
 
     @Override
-    @Bean
-    public void calculator(int amount) {
-        List<CalculatedWaterFee> calculatedWaterFee = new ArrayList<>();
-        fileRepository.read();
-        AtomicLong remainAmount = new AtomicLong(amount);
-        ComparatorForAscending comp = new ComparatorForAscending();
 
-        fileRepository.findAll().stream().forEach((waterFee -> {
-            if (remainAmount.get() >= waterFee.getSectionStart() &&
-                remainAmount.get() <= waterFee.getSectionEnd()) {
+    public void calculator(int amount) {
+
+        AtomicLong atomicAmount = new AtomicLong(amount);
+        calculatedWaterFee.clear();
+
+        dataRead.findAll().stream().forEach((waterFee -> {
+            if (atomicAmount.get() >= waterFee.getSectionStart() &&
+                atomicAmount.get() <= waterFee.getSectionEnd()) {
                 calculatedWaterFee.add(new CalculatedWaterFee(waterFee.getNameOfCity(),
                     waterFee.getSector(), waterFee.getUnitPrice(),
                     waterFee.getUnitPrice() * amount));
             }
         }));
-        Collections.sort(calculatedWaterFee, comp);
-        for (int i = 0; i < 5; i++) {
-            System.out.println(calculatedWaterFee.get(i).toString());
-        }
+
+
+    }
+
+    public List<CalculatedWaterFee> getCalculatedWaterFee() {
+        return calculatedWaterFee;
     }
 }

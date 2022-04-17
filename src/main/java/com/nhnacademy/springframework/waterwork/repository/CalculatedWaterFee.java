@@ -18,14 +18,6 @@ public class CalculatedWaterFee {
         return fee;
     }
 
-    public String getNameOfCity() {
-        return nameOfCity;
-    }
-
-    public String getSector() {
-        return sector;
-    }
-
     @Override
     public String toString() {
         return "CalculatedWaterFee{" +

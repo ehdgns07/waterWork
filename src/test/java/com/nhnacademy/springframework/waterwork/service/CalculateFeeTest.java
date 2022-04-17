@@ -20,7 +20,7 @@ class CalculateFeeTest {
         FileRepository fileRepository;
 
         fileRepository = new CsvFileParser();
-        fileRepository.read();
+        fileRepository.read("./Tariff_20220331.csv");
         AtomicLong finalFee = new AtomicLong(0);
         int amount = 1000;
         AtomicLong remainAmount = new AtomicLong(amount);
