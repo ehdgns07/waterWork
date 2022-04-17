@@ -4,7 +4,7 @@ import com.nhnacademy.springframework.waterwork.repository.CalculatedWaterFee;
 import java.util.List;
 
 public interface Calculate {
-    public void calculator(int amount);
+    public void calculator(long amount);
 
     public List<CalculatedWaterFee> getCalculatedWaterFee();
 }

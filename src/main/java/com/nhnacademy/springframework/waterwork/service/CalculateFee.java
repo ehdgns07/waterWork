@@ -16,7 +16,7 @@ public class CalculateFee implements Calculate {
 
     @Override
 
-    public void calculator(int amount) {
+    public void calculator(long amount) {
 
         AtomicLong atomicAmount = new AtomicLong(amount);
         calculatedWaterFee.clear();

@@ -1,5 +1,7 @@
 package com.nhnacademy.springframework.waterwork.repository;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class WaterFee {
     private int orderNumber = 0;
     private String nameOfCity = null;
@@ -8,10 +10,10 @@ public class WaterFee {
     private int sectionStart = 0;
     private int sectionEnd = 0;
     private int unitPrice = 0;
-    private long basicFeeOflevel = 0;
 
-    public WaterFee(int orderNumber, String nameOfCity, String sector, int level,
-                    int sectionStart, int sectionEnd, int unitPrice){
+    public WaterFee(@JsonProperty("순번") int orderNumber,@JsonProperty("지자체명") String nameOfCity,@JsonProperty("업종") String sector,@JsonProperty("단계") int level,
+                    @JsonProperty("구간시작(세제곱미터)") int sectionStart,@JsonProperty("구간끝(세제곱미터)") int sectionEnd, @JsonProperty("구간금액(원)")int unitPrice
+                    ){
         this.orderNumber = orderNumber;
         this.nameOfCity = nameOfCity;
         this.sector = sector;
@@ -19,6 +21,10 @@ public class WaterFee {
         this.sectionStart = sectionStart;
         this.sectionEnd = sectionEnd;
         this.unitPrice = unitPrice;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
     }
 
     public String getNameOfCity() {
@@ -40,7 +46,9 @@ public class WaterFee {
     public int getUnitPrice() {
         return unitPrice;
     }
+
     public int getLevel() {
         return level;
     }
+
 }

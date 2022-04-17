@@ -15,7 +15,7 @@ public class BootStrap {
     static Log log = LogFactory.getLog(BootStrap.class);
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int amount = 0;
+        long amount = 0;
         String path = "./Tariff_20220331.csv";
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
             MainConfigFile.class)) {
@@ -27,7 +27,7 @@ public class BootStrap {
                 if(Objects.equals(amount, 0)){
                     break;
                 }
-                context.getBean("fileRepository", FileParser.class).read(path);
+                context.getBean("jsonFileParser", FileParser.class).read(path);
                 context.getBean("dataRead", DataRead.class).dataLoadAndSave();
                 context.getBean("calculate", Calculate.class).calculator(amount);
                 context.getBean("logingService", LogingService.class).printingResult();

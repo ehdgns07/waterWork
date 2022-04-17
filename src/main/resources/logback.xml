@@ -11,7 +11,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>
-                %msg
+                %msg%n
             </pattern>
         </encoder>
     </appender>
@@ -28,10 +28,9 @@
                 %msg%n
         </pattern>
     </logger>
-    <logger name="com.nhnacademy.springframework.waterwork.service.LoggingResultServiceTest" level="INFO" additivity="false">
-        <appender-ref ref="STDOUT" />
+    <logger name="com.nhnacademy.springframework.waterwork.service.LoggingService" level="INFO" additivity="false">        <appender-ref ref="STDOUT" />
         <pattern>
-            %msg
+            %msg%n
         </pattern>
     </logger>
 

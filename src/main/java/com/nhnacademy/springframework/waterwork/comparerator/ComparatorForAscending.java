@@ -2,8 +2,6 @@ package com.nhnacademy.springframework.waterwork.comparerator;
 
 import com.nhnacademy.springframework.waterwork.repository.CalculatedWaterFee;
 import java.util.Comparator;
-import org.springframework.context.annotation.Configuration;
-
 
 public class ComparatorForAscending implements Comparator<CalculatedWaterFee> {
     @Override
