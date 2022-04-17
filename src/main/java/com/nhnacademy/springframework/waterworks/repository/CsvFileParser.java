@@ -1,4 +1,4 @@
-package com.nhnacademy.springframework.waterwork.repository;
+package com.nhnacademy.springframework.waterworks.repository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,7 +29,6 @@ private List<WaterFee> waterFeeList = new ArrayList<>();
                         , Integer.parseInt(StrArr[6])));
             }
         } catch (IOException e) {
-            e.printStackTrace();
             log.info("파일이 없습니다!");
         }
     }

@@ -1,7 +1,7 @@
-package com.nhnacademy.springframework.waterwork.service;
+package com.nhnacademy.springframework.waterworks.service;
 
-import com.nhnacademy.springframework.waterwork.repository.FileParser;
-import com.nhnacademy.springframework.waterwork.repository.WaterFee;
+import com.nhnacademy.springframework.waterworks.repository.FileParser;
+import com.nhnacademy.springframework.waterworks.repository.WaterFee;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -15,9 +15,11 @@ public class DataLoadService implements DataRead{
     }
 
     @Override
-    public void dataLoadAndSave(){
+    public boolean dataLoadAndSave(String path){
         waterFee.clear();
+        fileParser.read(path);
         waterFee.addAll(fileParser.findAll());
+        return true;
     }
 
     @Override

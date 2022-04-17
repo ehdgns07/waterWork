@@ -1,6 +1,6 @@
-package com.nhnacademy.springframework.waterwork.service;
+package com.nhnacademy.springframework.waterworks.service;
 
-import com.nhnacademy.springframework.waterwork.comparerator.ComparatorForAscending;
+import com.nhnacademy.springframework.waterworks.comparerator.ComparatorForAscending;
 import java.util.Collections;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

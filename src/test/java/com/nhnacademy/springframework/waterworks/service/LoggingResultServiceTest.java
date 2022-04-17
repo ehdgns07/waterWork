@@ -1,9 +1,9 @@
-package com.nhnacademy.springframework.waterwork.service;
+package com.nhnacademy.springframework.waterworks.service;
 
-import com.nhnacademy.springframework.waterwork.comparerator.ComparatorForAscending;
-import com.nhnacademy.springframework.waterwork.config.MainConfigFile;
-import com.nhnacademy.springframework.waterwork.repository.CsvFileParser;
-import com.nhnacademy.springframework.waterwork.repository.FileParser;
+import com.nhnacademy.springframework.waterworks.comparerator.ComparatorForAscending;
+import com.nhnacademy.springframework.waterworks.config.MainConfigFile;
+import com.nhnacademy.springframework.waterworks.repository.CsvFileParser;
+import com.nhnacademy.springframework.waterworks.repository.FileParser;
 import java.util.Collections;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,8 +21,8 @@ class LoggingResultServiceTest {
     @Test
     void printingResult() {
 
-        file.read("./Tariff_20220331.csv");
-        dataRead.dataLoadAndSave();
+
+        dataRead.dataLoadAndSave("Tariff_20220331.csv");
         calculate.calculator(1000);
         Collections.sort(calculate.getCalculatedWaterFee(), comp);
         for (int i = 0; i < 5; i++) {

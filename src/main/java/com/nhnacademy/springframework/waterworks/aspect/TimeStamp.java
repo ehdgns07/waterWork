@@ -1,4 +1,4 @@
-package com.nhnacademy.springframework.waterwork.aspect;
+package com.nhnacademy.springframework.waterworks.aspect;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

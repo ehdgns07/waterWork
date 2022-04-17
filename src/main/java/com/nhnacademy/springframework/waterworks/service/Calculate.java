@@ -1,6 +1,6 @@
-package com.nhnacademy.springframework.waterwork.service;
+package com.nhnacademy.springframework.waterworks.service;
 
-import com.nhnacademy.springframework.waterwork.repository.CalculatedWaterFee;
+import com.nhnacademy.springframework.waterworks.repository.CalculatedWaterFee;
 import java.util.List;
 
 public interface Calculate {

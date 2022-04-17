@@ -1,6 +1,6 @@
-package com.nhnacademy.springframework.waterwork.comparerator;
+package com.nhnacademy.springframework.waterworks.comparerator;
 
-import com.nhnacademy.springframework.waterwork.repository.CalculatedWaterFee;
+import com.nhnacademy.springframework.waterworks.repository.CalculatedWaterFee;
 import java.util.Comparator;
 
 public class ComparatorForAscending implements Comparator<CalculatedWaterFee> {

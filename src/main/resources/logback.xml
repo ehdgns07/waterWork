@@ -16,19 +16,20 @@
         </encoder>
     </appender>
 
-    <logger name="com.nhnacademy.springframework.waterwork.BootStrap" level="INFO" additivity="false">
+    <logger name="com.nhnacademy.springframework.waterworks.BootStrap" level="INFO" additivity="false">
         <appender-ref ref="STDOUT" />
         <pattern>
                 %msg
         </pattern>
     </logger>
-    <logger name="com.nhnacademy.springframework.waterwork.aspect.TimeStamp" level="INFO" additivity="false">
+    <logger name="com.nhnacademy.springframework.waterworks.aspect.TimeStamp" level="INFO" additivity="false">
     <appender-ref ref="FILE" />
         <pattern>
                 %msg%n
         </pattern>
     </logger>
-    <logger name="com.nhnacademy.springframework.waterwork.service.LoggingService" level="INFO" additivity="false">        <appender-ref ref="STDOUT" />
+    <logger name="com.nhnacademy.springframework.waterworks.service.LoggingService" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT" />
         <pattern>
             %msg%n
         </pattern>

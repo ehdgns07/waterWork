@@ -1,4 +1,4 @@
-package com.nhnacademy.springframework.waterwork.service;
+package com.nhnacademy.springframework.waterworks.service;
 
 
 

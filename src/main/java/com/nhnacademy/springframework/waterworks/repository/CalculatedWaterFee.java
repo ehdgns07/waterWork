@@ -1,4 +1,4 @@
-package com.nhnacademy.springframework.waterwork.repository;
+package com.nhnacademy.springframework.waterworks.repository;
 
 public class CalculatedWaterFee {
 

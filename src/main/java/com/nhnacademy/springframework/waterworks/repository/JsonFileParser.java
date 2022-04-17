@@ -1,4 +1,4 @@
-package com.nhnacademy.springframework.waterwork.repository;
+package com.nhnacademy.springframework.waterworks.repository;
 
 import static java.lang.Integer.parseInt;
 
@@ -23,7 +23,7 @@ public class JsonFileParser implements FileParser{
 
 
         try( BufferedReader br = new BufferedReader(new InputStreamReader(
-            getClass().getClassLoader().getResourceAsStream("./Tariff_20220331.json")))){
+            getClass().getClassLoader().getResourceAsStream(path)))){
             TypeReference<List<HashMap<String,String>>> typeRef = new TypeReference<>(){};
 
             List<HashMap<String,String>> jsonParsingList = objectMapper.readValue(br , typeRef);
@@ -34,7 +34,6 @@ public class JsonFileParser implements FileParser{
                 , parseInt(stringObjectHashMap.get("구간금액(원)")))));
 
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("파일을 찾을 수 없습니다.");
         }
     }
